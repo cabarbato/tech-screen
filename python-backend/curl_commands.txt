@@ -1,0 +1,3 @@
+curl http://127.0.0.1:5000
+curl http://127.0.0.1:5000/transactions/12
+curl -H "Content-Type: application/json" -X POST -d '{"info": "this is a cart"}' http://127.0.0.1:5000/transactions/new
