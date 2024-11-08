@@ -3,7 +3,6 @@ Backend service for Shopping Cart
 '''
 
 import json
-import base64
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -36,7 +35,7 @@ def get_transaction(trans_id):
     with open('transactions.json', 'r', encoding='utf-8') as f:
         history = json.loads(f.read())
 
-    matches = list(filter(lambda x: x['id'] == trans_id, history))
+    matches = list(filter(lambda x: str(x['id']) == trans_id, history))
 
     return matches
 
@@ -60,7 +59,7 @@ def sanitize_discounts():
     '''
     Your colleague just noticed that we've been calculating discount totals incorrectly!
 
-    In a cart, each item has a total sold, a discount %, and a discount amount in $. 
+    In a cart, each item has a total sold, a discount %, and a discount amount in $
     The cart has a total discount $.
 
     But this total discount $ is incorrect!
