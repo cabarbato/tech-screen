@@ -1,8 +1,6 @@
-import { StateContext } from './context/context';
-import React from 'react';
-import type { Cart, Product } from './context/models';
+import type { Product } from './context/models';
 import ProductItem from './components/ProductItem';
-import CartView from './components/CartView';
+import CartView from './views/CartView';
 
 const products: Product[] = [
   {
@@ -52,10 +50,6 @@ const products: Product[] = [
 ];
 
 function App() {
-  const context = React.useContext(StateContext);
-  
-  const cart: Cart = context ? context.cart : {};
-
   return (
     <div className="columns">
   <div className="column">
