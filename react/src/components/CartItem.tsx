@@ -1,6 +1,6 @@
 import type { Product } from "../context/models";
 
-const CartItem = ({ item }: {item: Product}) => <div className="cart-item my-8">
+const CartItem = ({ item }: {item: Product}) => <div className="cart-item my-6">
 	<h2>{item.title}</h2>
 	<p>${item.price}</p>
 	<p>Quantity: {item.quantity}</p>

@@ -16,12 +16,12 @@ const CartView = () => {
   };
 
   return (
-    <>
+    <div className="content is-medium">
         {cart.products && cart.products.length > 0 ? (
         cart.products.map((item) => <CartItem item={item} key={item.id} />)
         ) : null}
       <h3>Total: {cart.total}</h3>
-    </>
+    </div>
   );
 };
 

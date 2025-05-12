@@ -54,7 +54,7 @@ function App() {
   return (
     <Provider>
       <div className="columns">
-        <div className="column">
+        <div className="column grid is-align-content-flex-start">
           {products.map((product: Product) => (
             <ProductItem key={product.id} product={product} />
           ))}
