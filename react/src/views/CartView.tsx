@@ -5,7 +5,15 @@ import type { Cart } from "../context/models";
 
 const CartView = () => {
   const context = React.useContext(StateContext);
-  const cart: Cart = context?.cart || { products: [] };
+  const cart: Cart = context?.cart || { 
+    id: 0, 
+    products: [], 
+    total: 0, 
+    discountedTotal: 0, 
+    userId: 0, 
+    totalProducts: 0, 
+    totalQuantity: 0 
+  };
 
   return (
     <>

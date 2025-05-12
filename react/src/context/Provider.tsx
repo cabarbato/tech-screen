@@ -1,11 +1,7 @@
-import React, { type ReactNode } from "react";
+import React from "react";
 import { cartReducer } from "./reducers";
-import type { Cart, CartState } from "./models";
+import type { Cart, CartState, ProviderProps } from "./models";
 import { StateContext, DispatchContext } from "./context";
-
-interface ProviderProps {
-  children: ReactNode;
-}
 
 const initialCart: Cart = {
     id: 1,

@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export interface Product {
 	id: number;
 	title: string;
@@ -18,6 +20,11 @@ export interface Cart {
 	totalProducts: number;
 	totalQuantity: number;
 }
+
+export interface ProviderProps {
+	children: ReactNode;
+  }
+  
   
 export interface CartState {
     cart: Cart;
