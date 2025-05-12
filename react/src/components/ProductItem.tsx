@@ -1,13 +1,12 @@
-import React from 'react'
+import type { Product } from '../context/models'
 
-const ProductItem = (props) => {
-  const { product } = props
+const ProductItem = ({product}: {product: Product}) => {
 
   return (
-	<div className="product-item">
-	  <h2>{product.name}</h2>
-	  <p>{product.description}</p>
+	<div className="product-item my-8">
+	  <h2>{product.title}</h2>
 	  <p>${product.price}</p>
+	  <button>Add to Cart</button>
 	</div>
   )
 }

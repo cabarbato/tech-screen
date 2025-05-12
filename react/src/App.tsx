@@ -1,34 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { StateContext } from './context/context';
+import React from 'react';
+import type { Cart, Product } from './context/models';
+import ProductItem from './components/ProductItem';
+import CartView from './components/CartView';
+
+const products: Product[] = [
+  {
+    id: 168,
+    title: 'Charger SXT RWD',
+    price: 32999.99,
+    quantity: 1,
+    total: 32999.99,
+    discountPercentage: 0,
+    discountedTotal: 0,
+    thumbnail:
+      'https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png',
+  },
+  {
+    id: 78,
+    title: 'Apple MacBook Pro 14 Inch Space Grey',
+    price: 1999.99,
+    quantity: 1,
+    total: 1999.99,
+    discountPercentage: 0,
+    discountedTotal: 0,
+    thumbnail:
+      'https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/thumbnail.png',
+  },
+  {
+    id: 183,
+    title: 'Green Oval Earring',
+    price: 24.99,
+    quantity: 1,
+    total: 24.99,
+    discountPercentage: 0,
+    discountedTotal: 0,
+    thumbnail:
+      'https://cdn.dummyjson.com/products/images/womens-jewellery/Green%20Oval%20Earring/thumbnail.png',
+  },
+  {
+    id: 100,
+    title: 'Apple Airpods',
+    price: 129.99,
+    quantity: 1,
+    total: 129.99,
+    discountPercentage: 0,
+    discountedTotal: 0,
+    thumbnail:
+      'https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png',
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const context = React.useContext(StateContext);
+  
+  const cart: Cart = context ? context.cart : {};
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="columns">
+  <div className="column">
+  {products.map((product: Product) => (<ProductItem key={product.id} product={product} />))}
+  </div>
+  <div className="column">
+  <CartView />
+  </div>
+</div>
   )
 }
 
