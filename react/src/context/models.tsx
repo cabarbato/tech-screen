@@ -25,5 +25,5 @@ export interface CartState {
 
 export interface CartAction {
     type: string;
-    payload: string;
+    payload: Cart;
 }

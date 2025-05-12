@@ -63,12 +63,9 @@ const initialCart: Cart = {
   };
 
 function Provider({ children }: Readonly<ProviderProps>) {
-  const [cart, onSetCart] = React.useReducer<
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    React.Reducer<CartState, any>
-  >(cartReducer, {
+  const [cart, onSetCart] = React.useReducer(cartReducer, {
     cart: initialCart,
-  });
+  } as CartState);
 
   return (
     <StateContext.Provider value={cart}>
