@@ -1,9 +1,14 @@
 import type { Product } from "../context/models";
 
-const CartItem = ({ item }: {item: Product}) => <div className="cart-item my-6">
-	<h2>{item.title}</h2>
-	<p>${item.price}</p>
-	<p>Quantity: {item.quantity}</p>
-	</div>
-	
+const CartItem = ({ item }: { item: Product }) => (
+  <tr className="cart-item my-6">
+    <td>{item.title}</td>
+    <td>${item.price}</td>
+    <td>{item.quantity}</td>
+    <td>
+      <button className="button">Remove One</button>
+    </td>
+  </tr>
+);
+
 export default CartItem;

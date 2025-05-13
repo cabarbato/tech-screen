@@ -53,13 +53,17 @@ const products: Product[] = [
 function App() {
   return (
     <Provider>
-      <div className="columns">
-        <div className="column grid is-align-content-flex-start">
-          {products.map((product: Product) => (
-            <ProductItem key={product.id} product={product} />
-          ))}
+      <div className="container columns my-3">
+        <div className="column">
+          <h1 className="title">Product List</h1>
+          <div className="grid is-align-content-flex-start">
+            {products.map((product: Product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </div>
         </div>
         <div className="column">
+          <h1 className="title">Shopping Cart</h1>
           <CartView />
         </div>
       </div>
